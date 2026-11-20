@@ -1,0 +1,67 @@
+# ---------- Secrets: never commit ----------
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+*.cer
+*.publishsettings
+secrets*.json
+credentials*.json
+*credential*
+*secret*
+!*.example
+!*.example.*
+
+# Power Platform: deployment settings carry connection IDs and env var values.
+# Commit a sanitised deploymentSettings.example.json instead.
+deploymentSettings*.json
+*.settings.json
+!*.example.json
+
+# Connection references exported with credentials or connection IDs
+connectionreferences*.json
+connections*.json
+
+# ---------- Power Automate Desktop / Power Platform ----------
+# Zipped solution exports: commit the unpacked source (pac solution unpack), not the zip
+*.zip
+# Run outputs, logs and screenshots generated at run time
+output/
+logs/
+*.log
+# Office lock and temp files
+~$*
+*.tmp
+
+# ---------- Data ----------
+# Build sample databases from a committed .sql seed script instead.
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+# Allow a deliberate, synthetic sample DB only if you whitelist it:
+# !samples/demo.db
+
+# ---------- Python ----------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+dist/
+build/
+
+# ---------- OS / editor ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
