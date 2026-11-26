@@ -1,0 +1,4 @@
+
+FUNCTION Init_Application GLOBAL
+    WebAutomation.LaunchEdge.LaunchEdge Url: In_LabUrl ClearCache: False ClearCookies: False WindowState: WebAutomation.BrowserWindowState.Maximized WaitForPageToLoadTimeout: 60 Timeout: 60 PiPUserDataFolderMode: WebAutomation.PiPUserDataFolderModeEnum.AutomaticProfile TargetDesktop: $'''{\"DisplayName\":\"Local computer\",\"Route\":{\"ServerType\":\"Local\",\"ServerAddress\":\"\"},\"DesktopType\":\"local\"}''' BrowserInstance=> brEdge
+END FUNCTION

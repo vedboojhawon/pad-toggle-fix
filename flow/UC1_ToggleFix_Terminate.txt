@@ -1,0 +1,8 @@
+
+FUNCTION Terminate GLOBAL
+    IF bErrorHappened = True THEN
+        ERROR => LastError Reset: True
+        SET txtLogLine TO $'''Location: %LastError.Location% | Message: %LastError.Message%'''
+        EXIT Code: 0 ErrorMessage: txtLogLine
+    END
+END FUNCTION

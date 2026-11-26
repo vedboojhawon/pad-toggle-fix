@@ -1,0 +1,14 @@
+
+FUNCTION Init_Context GLOBAL
+    SET bErrorHappened TO False
+    SET txtStateBefore TO $'''%''%'''
+    SET txtStateAfter TO $'''%''%'''
+    SET txtResult TO $'''%''%'''
+    SET txtStateAfterClick TO $'''%''%'''
+    IF IsEmpty(In_ToggleSelector) THEN
+        FlowControl.ThrowCustomError CustomErrorCode: $'''ConfigMissing''' CustomErrorMessage: $'''In_ToggleSelector not set'''
+    END
+    IF (In_DesiredState <> 'on' AND In_DesiredState <> 'off') = True THEN
+        FlowControl.ThrowCustomError CustomErrorCode: $'''ConfigInvalid''' CustomErrorMessage: $'''In_DesiredState must be on or off, got: %In_DesiredState%'''
+    END
+END FUNCTION
