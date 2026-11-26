@@ -9,7 +9,15 @@ Power Automate Desktop flow that sets a web toggle to a desired state when the n
 | After UI click (Press button) | C=off - click ignored |
 | After Run JavaScript function | C=on - result ON |
 
-Screenshots: `evidence/01-js-fix-success.png`, `evidence/02-config-invalid.png`
+### Screenshots
+
+**UI click ignored, JavaScript fixed it**
+
+![JS fix succeeded after UI click was ignored](evidence/01-js-fix-success.png)
+
+**Bad input caught before the browser opened**
+
+![ConfigInvalid caught before browser opened](evidence/02-config-invalid.png)
 
 ## Design
 - Frame: Init_Context > Init_Application > Execute > Finalize > Terminate
