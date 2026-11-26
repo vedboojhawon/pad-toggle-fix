@@ -1,0 +1,8 @@
+
+FUNCTION Main GLOBAL
+    CALL Init_Context
+    CALL Init_Application
+    CALL Execute
+    CALL Finalize
+    CALL Terminate
+END FUNCTION

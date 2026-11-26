@@ -1,0 +1,5 @@
+
+FUNCTION Finalize GLOBAL
+    SET Out_ToggleResult TO txtResult
+    WebAutomation.CloseWebBrowser BrowserInstance: brEdge
+END FUNCTION

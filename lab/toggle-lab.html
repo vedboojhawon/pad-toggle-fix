@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Toggle Lab</title>
+<style>
+body{font-family:Segoe UI,Arial;padding:24px}
+.switch{position:relative;display:inline-block;width:50px;height:26px}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;background:#999;border-radius:26px;cursor:pointer}
+.switch input:checked + .slider{background:#0a7}
+#tC{display:inline-block;width:50px;height:26px;background:#999;border-radius:26px;cursor:pointer}
+#tC[aria-checked="true"]{background:#0a7}
+</style></head><body>
+<h2>Toggle Lab</h2>
+<p>A (plain checkbox) <input type="checkbox" id="tA"></p>
+<p>B (hidden input under styled slider) <label class="switch"><input type="checkbox" id="tB"><span class="slider" id="sB"></span></label></p>
+<p>C (div, listens to pointerdown only) <span id="tC" role="switch" aria-checked="false"></span></p>
+<p id="state">A=off B=off C=off</p>
+<script>
+function s(){
+  var a=document.getElementById("tA").checked?"on":"off";
+  var b=document.getElementById("tB").checked?"on":"off";
+  var c=document.getElementById("tC").getAttribute("aria-checked")==="true"?"on":"off";
+  document.getElementById("state").textContent="A="+a+" B="+b+" C="+c;
+}
+document.getElementById("tA").onchange=s;
+document.getElementById("tB").onchange=s;
+var tc=document.getElementById("tC");
+tc.addEventListener("pointerdown",function(){
+  tc.setAttribute("aria-checked",tc.getAttribute("aria-checked")==="true"?"false":"true");s();
+});
+</script></body></html>
